@@ -1,0 +1,72 @@
+{
+  "fears": [
+    {
+      "name": "Acrophobia",
+      "prompt": "360-degree view from the edge of a towering cliff, looking down at a vast drop with jagged rocks below, clouds partially obscuring the ground, and a thin, swaying suspension bridge connecting distant peaks."
+    },
+    {
+      "name": "Aerophobia",
+      "prompt": "360-degree view from inside a turbulent airplane cabin, with dim, flickering lights, passengers gripping seats, and a view out the window showing storm clouds and flashes of lightning against the wings."
+    },
+    {
+      "name": "Amaxophobia",
+      "prompt": "360-degree perspective from inside a car, driving on a narrow, winding mountain road in the dark with no guardrails, headlights illuminating a sudden drop-off on one side and the edge of a cliff on the other."
+    },
+    {
+      "name": "Aquaphobia",
+      "prompt": "360-degree view from within a small, rocky cave just above the waterline, surrounded by vast, dark waves crashing against jagged rocks, with water rising menacingly and no visible shore in sight."
+    },
+    {
+      "name": "Arachnophobia",
+      "prompt": "360-degree view inside a dark, decrepit mansion overrun with enormous spiders on the walls, floors, and ceiling, with thick webs covering every corner and faint shadows of spiders scurrying."
+    },
+    {
+      "name": "Astraphobia",
+      "prompt": "360-degree view in the middle of an open field during a severe thunderstorm, with lightning striking close by, dark clouds swirling, and deafening thunder echoing from all directions as rain pours down."
+    },
+    {
+      "name": "Claustrophobia",
+      "prompt": "360-degree view in an extremely narrow, dimly-lit tunnel with walls that appear to be closing in, limited air, and a faint light barely visible at the far end, adding to the sense of entrapment."
+    },
+    {
+      "name": "Dentophobia",
+      "prompt": "360-degree view inside a cold, sterile dental office, with an intimidating, overly-bright light overhead, sharp metal dental tools laid out on a tray, and a looming dentist figure in a white coat."
+    },
+    {
+      "name": "Glossophobia",
+      "prompt": "360-degree view from a stage in a grand, packed auditorium with hundreds of faceless spectators staring intently, waiting in silence, with bright spotlights making the stage uncomfortably warm."
+    },
+    {
+      "name": "Hemophobia",
+      "prompt": "360-degree view in a dimly-lit, abandoned hospital room with bloodstains on the floor and walls, faint red drips leading to dark corners, and eerie, reflective pools on the ground."
+    },
+    {
+      "name": "Monophobia",
+      "prompt": "360-degree view of a vast, empty forest at dusk, with a path disappearing into dense, dark woods, a chilling silence, and an endless row of shadowy trees making it feel isolated and abandoned."
+    },
+    {
+      "name": "Mysophobia",
+      "prompt": "360-degree view inside an uncleaned public bathroom with grimy surfaces, puddles of water on the floor, handprints on the walls, and faint particles in the air illuminated by flickering fluorescent lights."
+    },
+    {
+      "name": "Nosocomephobia",
+      "prompt": "360-degree view in an eerie, dimly-lit hospital hallway with flickering lights, empty wheelchairs scattered about, closed doors to silent patient rooms, and the faint echo of footsteps in the distance."
+    },
+    {
+      "name": "Nyctophobia",
+      "prompt": "360-degree view in the middle of a pitch-black forest at midnight, with barely any moonlight filtering through twisted branches, shadows moving around, and distant, unknown sounds all around."
+    },
+    {
+      "name": "Ornithophobia",
+      "prompt": "360-degree view surrounded by countless dark, shadowy birds perched in twisted trees, with some flying close, flapping wings loudly, and beady eyes watching from every direction in a gloomy forest."
+    },
+    {
+      "name": "Phasmophobia",
+      "prompt": "360-degree view in an abandoned Victorian mansion, with foggy, dim lighting, faint ghostly figures appearing and disappearing in dark corners, and cold, eerie shadows along the walls."
+    },
+    {
+      "name": "Zoophobia",
+      "prompt": "360-degree view in a dense jungle filled with various wild animals lurking in the bushes, pairs of glowing eyes watching from the shadows, and the sounds of low growls and rustling leaves."
+    }
+  ]
+}
