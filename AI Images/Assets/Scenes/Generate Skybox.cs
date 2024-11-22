@@ -2,27 +2,52 @@ using UnityEngine;
 
 public class SkyboxInitializer : MonoBehaviour
 {
-    // The Skybox material in your scene (assigned via the inspector or in code)
+    // The Skybox material used in the scene
     public Material SkyboxPanoramic;
 
-    // Called when the scene is loaded
+    // Target resolution for upscaling
+    public int TargetWidth = 4096;
+    public int TargetHeight = 2048;
+    
     private void Start()
     {
         // Ensure the generated image is available before setting it
         if (ImageDataHolder.GeneratedImage != null && SkyboxPanoramic != null)
         {
-            // Assign the generated image to the skybox material's texture
-            SkyboxPanoramic.SetTexture("_MainTex", ImageDataHolder.GeneratedImage);
+            // Upscale the image
+            Texture2D upscaledImage = UpscaleImage(ImageDataHolder.GeneratedImage, TargetWidth, TargetHeight);
+            
+            SkyboxPanoramic.SetTexture("_MainTex", upscaledImage);
+            SkyboxPanoramic.SetTexture("_Tex", upscaledImage);
 
-            // If you're using a shader that needs an HDR texture, make sure the material is set up for HDR
-            SkyboxPanoramic.SetTexture("_Tex", ImageDataHolder.GeneratedImage);
-
-            // Optionally, set the material as the scene's skybox
+            // this is probably redundant
             RenderSettings.skybox = SkyboxPanoramic;
         }
         else
         {
             Debug.LogError("Generated image or Skybox material not assigned.");
         }
+    }
+
+    // Upscale the image to the TargetWidth and TargetHeight
+    private Texture2D UpscaleImage(Texture2D original, int targetWidth, int targetHeight)
+    {
+        Texture2D upscaledTexture = new Texture2D(targetWidth, targetHeight, original.format, original.mipmapCount > 1);
+
+        // Uses bilinear interpolation
+        for (int y = 0; y < targetHeight; y++)
+        {
+            for (int x = 0; x < targetWidth; x++)
+            {
+                float u = x / (float)targetWidth;
+                float v = y / (float)targetHeight;
+                Color color = original.GetPixelBilinear(u, v);
+                upscaledTexture.SetPixel(x, y, color);
+            }
+        }
+        
+        upscaledTexture.Apply();
+
+        return upscaledTexture;
     }
 }
