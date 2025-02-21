@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2e4a11424bacd4418fb6c47ff99b12a, type: 3}
   m_Name: HuggingFaceAPIConfig
   m_EditorClassIdentifier: 
-  _apiKey: JFFdsNNCoIuiclueBYGAuuCoIuiclueBYGAuu
+  _apiKey: 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
   _useBackupEndpoints: 1
   _waitForModel: 1
-  _maxTimeout: 60
+  _maxTimeout: 120
   _taskEndpoints:
   - taskName: AutomaticSpeechRecognition
     endpoint: https://api-inference.huggingface.co/models/openai/whisper-tiny
@@ -32,7 +32,7 @@ MonoBehaviour:
   - taskName: TextGeneration
     endpoint: https://api-inference.huggingface.co/models/gpt2
   - taskName: TextToImage
-    endpoint: https://api-inference.huggingface.co/models/artificialguybr/360Redmond
+    endpoint: https://api-inference.huggingface.co/models/igorriti/flux-360
   - taskName: Translation
     endpoint: https://api-inference.huggingface.co/models/t5-base
   - taskName: ZeroShotTextClassification
