@@ -1,9 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
+using System.IO;
 
-namespace HuggingFace.API.Examples {
-    public class TextToImageExample : MonoBehaviour {
+namespace HuggingFace.API.Examples
+{
+    public class TextToImageExample : MonoBehaviour
+    {
         [SerializeField] private Image image;
         [SerializeField] private TMP_InputField inputField;
         [SerializeField] private TMP_Text statusText;
@@ -13,33 +17,40 @@ namespace HuggingFace.API.Examples {
         private string errorColorHex;
         private bool isWaitingForResponse;
 
-        private void Awake() {
+        private void Awake()
+        {
             normalColorHex = ColorUtility.ToHtmlStringRGB(statusText.color);
             errorColorHex = ColorUtility.ToHtmlStringRGB(Color.red);
             image.color = Color.black;
         }
 
-        private void Start() {
+        private void Start()
+        {
             generateButton.onClick.AddListener(GenerateButtonClicked);
             inputField.ActivateInputField();
             inputField.onEndEdit.AddListener(OnInputFieldEndEdit);
         }
 
-        private void GenerateButtonClicked() {
+        private void GenerateButtonClicked()
+        {
             SendQuery();
         }
 
-        private void OnInputFieldEndEdit(string text) {
-            if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter)) {
+        private void OnInputFieldEndEdit(string text)
+        {
+            if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
+            {
                 SendQuery();
             }
         }
 
-        private void SendQuery() {
+        private void SendQuery()
+        {
             if (isWaitingForResponse) return;
 
             string inputText = inputField.text;
-            if (string.IsNullOrEmpty(inputText)) {
+            if (string.IsNullOrEmpty(inputText))
+            {
                 return;
             }
 
@@ -54,11 +65,17 @@ namespace HuggingFace.API.Examples {
             HuggingFaceAPI.TextToImage(inputText, texture => {
                 image.sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.zero);
                 image.color = Color.white;
-                statusText.text = $"";
+                statusText.text = $""; // Reset status text
                 isWaitingForResponse = false;
                 inputField.interactable = true;
                 generateButton.interactable = true;
                 inputField.ActivateInputField();
+
+                // Save the image to file
+                SaveTextureAsPNG(texture);
+
+                // After saving the image, transition to the second scene
+                SceneManager.LoadScene(0); // ImageEnvironment scene (scene index 1)
             }, error => {
                 statusText.text = $"<color=#{errorColorHex}>Error: {error}</color>";
                 isWaitingForResponse = false;
@@ -66,6 +83,14 @@ namespace HuggingFace.API.Examples {
                 generateButton.interactable = true;
                 inputField.ActivateInputField();
             });
+        }
+
+        private void SaveTextureAsPNG(Texture2D texture)
+        {
+            byte[] bytes = texture.EncodeToPNG();
+            string filePath = Path.Combine(Application.persistentDataPath, "generated_image.png");
+            File.WriteAllBytes(filePath, bytes);
+            Debug.Log("Image saved to: " + filePath);
         }
     }
 }

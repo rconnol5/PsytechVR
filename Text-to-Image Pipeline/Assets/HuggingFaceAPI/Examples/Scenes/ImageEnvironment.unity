@@ -470,29 +470,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1729968636}
-  - component: {fileID: 1729968635}
+  - component: {fileID: 1729968637}
   m_Layer: 0
-  m_Name: Skybox Generation
+  m_Name: Skybox Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1729968635
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1729968634}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a480ccac0c1ecd148879168ccbf3ea40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SkyboxPanoramic: {fileID: 0}
-  TargetWidth: 4096
-  TargetHeight: 2048
 --- !u!4 &1729968636
 Transform:
   m_ObjectHideFlags: 0
@@ -508,6 +493,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1729968637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1729968634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5610d62dcf40014f82f56605644464d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skyboxMaterial: {fileID: 2100000, guid: a7904aeb0b8a50d46823f458d4f66eb8, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

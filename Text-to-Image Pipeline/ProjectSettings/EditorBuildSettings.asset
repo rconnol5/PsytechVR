@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/HuggingFaceAPI/Examples/Scenes/ImageEnvironment.unity
+    guid: adf8bd71566a099409f556d078af4311
+  - enabled: 1
+    path: Assets/HuggingFaceAPI/Examples/Scenes/TextToImageExample.unity
+    guid: 042b5e9e4bbef794eaf009a01c71ddae
   m_configObjects: {}
