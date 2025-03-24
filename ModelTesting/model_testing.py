@@ -8,14 +8,13 @@ import sys
 
 # Load Hugging Face API token from environment variable or replace with your token directly
 load_dotenv() # Load environment variables from .env file
-API_TOKEN = os.getenv("HUGGINGFACE_API_TOKEN")  # or directly set as "YOUR_API_TOKEN"
+API_TOKEN = os.getenv("HUGGINGFACE_API_TOKEN")
 API_URL_TEMPLATE = "https://api-inference.huggingface.co/models/{}"
 
-# Define the path to the JSON file with fear prompts
+
 PROMPTS_FILE = "fear_prompts.json"
 
-# Set the model name you want to test
-model_name = "igorriti/flux-360"  # Replace with the model you want to test
+model_name = "igorriti/flux-360"
 
 # Setup headers for the API call
 headers = {"Authorization": f"Bearer {API_TOKEN}"}
