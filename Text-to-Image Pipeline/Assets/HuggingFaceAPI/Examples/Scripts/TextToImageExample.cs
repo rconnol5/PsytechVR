@@ -64,7 +64,8 @@ namespace HuggingFace.API.Examples
             inputField.text = "";
 
             // Generate the refined prompt using GPT-2 before calling the image model
-            string gptPrompt = $"Refine this prompt to make it more detailed and descriptive for generating a 360° image: {inputText}";
+            //string gptPrompt = $"Improve the following image-generation prompt to give more detail about perspective and environment. {inputText}";
+            string gptPrompt = "Please answer the following question. What is the boiling point of nitrogen?";
 
             // Call HuggingFace's GPT-2 model to refine the prompt
             HuggingFaceAPI.TextGeneration(gptPrompt, refinedPrompt => {
@@ -80,7 +81,7 @@ namespace HuggingFace.API.Examples
                 Debug.Log("Fixed refinedPrompt: " + refinedPrompt);
                 */
 
-                string finalPrompt = "TOK Generate a 360-degree panorama image of " + refinedPrompt;
+                string finalPrompt = "TOK 360-degree panoramic image of " + refinedPrompt;
 
                 Debug.Log("finalPrompt: " + finalPrompt);
 
