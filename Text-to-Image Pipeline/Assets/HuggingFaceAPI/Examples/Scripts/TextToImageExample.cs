@@ -64,12 +64,12 @@ namespace HuggingFace.API.Examples
             inputField.text = "";
 
             // Generate the refined prompt using GPT-2 before calling the image model
-            string gptPrompt = inputText;
+            string gptPrompt = $"Refine this prompt to make it more detailed and descriptive for generating a 360° image: {inputText}";
 
             // Call HuggingFace's GPT-2 model to refine the prompt
             HuggingFaceAPI.TextGeneration(gptPrompt, refinedPrompt => {
                 // Debug: Log the refined prompt to the console
-                Debug.Log("GPT-2 Response: " + refinedPrompt);
+                Debug.Log("T5 Response: " + refinedPrompt);
 
                 //Further modify the refinedPrompt string manually, to obtain a final prompt
                 /*
