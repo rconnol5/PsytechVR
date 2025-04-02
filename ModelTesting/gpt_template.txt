@@ -5,6 +5,7 @@ Your output should:
 1. Add relevant detail to make the scene panoramic or equirectangular-friendly.
 2. Include clarifications about the environment or style, if missing (lighting, atmosphere, etc.).
 3. Use an imaginative, descriptive style without changing the user’s intent.
+4. Include at the end after a line break a comma separated list of 3 suggestions for additional content to be added to the prompt to make it more descriptive. These suggestions should be 1-3 words long.
 
 USER PROMPT:
 {{user_prompt}}
