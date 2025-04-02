@@ -8,6 +8,7 @@ using UnityEngine.UI;
 using UnityEngine.Networking;
 using TMPro;
 using Newtonsoft.Json;
+using UnityEditor;
 
 namespace HuggingFace.API.Examples
 {
@@ -352,7 +353,7 @@ namespace HuggingFace.API.Examples
                 // Show image result panel
                 imageResultPanel.SetActive(true);
 
-                // Save the image to file
+                // Save the image to image
                 SaveTextureAsPNG(texture);
 
             }, error => {
@@ -378,8 +379,15 @@ namespace HuggingFace.API.Examples
         private void SaveTextureAsPNG(Texture2D texture)
         {
             byte[] bytes = texture.EncodeToPNG();
-            string filePath = Path.Combine(Application.persistentDataPath, "generated_image.png");
+
+            // Create a unique timestamped filename
+            string timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
+            string fileName = $"generated_image_{timestamp}.png";
+
+            // Save in persistentDataPath or wherever you prefer
+            string filePath = Path.Combine(Application.persistentDataPath, fileName);
             File.WriteAllBytes(filePath, bytes);
+
             Debug.Log("Image saved to: " + filePath);
         }
     }
