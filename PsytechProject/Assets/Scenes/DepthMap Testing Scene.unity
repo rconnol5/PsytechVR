@@ -346,9 +346,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ee9f4f48ac85614785ee0ad8c901992, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  depthMap: {fileID: 2800000, guid: a580114aab6d601419838f814a55cd7f, type: 3}
+  depthMap: {fileID: 2800000, guid: d890fec7cd208d141b7a40e5db2453c8, type: 3}
   depthScale: 10
   meshResolution: 256
+  shaderMat: {fileID: 0}
 --- !u!114 &635380479
 MonoBehaviour:
   m_ObjectHideFlags: 0

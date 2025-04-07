@@ -8,6 +8,7 @@ public class DepthMapTesting : MonoBehaviour
     public Texture2D depthMap;
     public float depthScale = 10f;
     public int meshResolution = 256;
+    public Material shaderMat;
 
     private MeshFilter meshFilter;
     private Mesh mesh;
@@ -15,9 +16,14 @@ public class DepthMapTesting : MonoBehaviour
     void Start()
     {
         meshFilter = gameObject.AddComponent<MeshFilter>();
-        gameObject.AddComponent<MeshRenderer>();
+        var renderer = gameObject.AddComponent<MeshRenderer>();
+
+        // Assign grayscale material
+        renderer.material = new Material(Shader.Find("Custom/DepthGrayscaleShader"));
+
         GenerateMeshFromDepthMap();
     }
+
 
     void GenerateMeshFromDepthMap()
     {
