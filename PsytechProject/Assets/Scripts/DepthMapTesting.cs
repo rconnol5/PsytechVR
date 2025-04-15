@@ -51,7 +51,8 @@ public class DepthMapTesting : MonoBehaviour
             for (int x = 0; x < meshResolution; x++)
             {
                 Color pixelColor = depthMap.GetPixelBilinear((float)x / meshResolution, (float)z / meshResolution);
-                float depthValue = pixelColor.grayscale; // Using grayscale for depth
+                //float depthValue = pixelColor.grayscale; // For using a non-inverse depth map
+                float depthValue = 1f - pixelColor.grayscale; //Converting from inverse depth map for processing
                 vertices[z * meshResolution + x] = new Vector3(x, depthValue * depthScale, z);
                 uvs[z * meshResolution + x] = new Vector2((float)x / meshResolution, (float)z / meshResolution);
             }

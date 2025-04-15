@@ -253,6 +253,8 @@ GameObject:
   - component: {fileID: 635380475}
   - component: {fileID: 635380479}
   - component: {fileID: 635380478}
+  - component: {fileID: 635380480}
+  - component: {fileID: 635380481}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -341,13 +343,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 635380474}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5ee9f4f48ac85614785ee0ad8c901992, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  depthMap: {fileID: 2800000, guid: d890fec7cd208d141b7a40e5db2453c8, type: 3}
-  depthScale: 10
+  depthMap: {fileID: 2800000, guid: 9d030f9ab7255694898786b1faa9da96, type: 3}
+  depthScale: 30
   meshResolution: 256
   shaderMat: {fileID: 0}
 --- !u!114 &635380479
@@ -394,6 +396,41 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &635380480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 635380474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d786ee056d50eb469d4f5091880a535, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  depthMap: {fileID: 2800000, guid: dda4b3dd92051774ca1ca7666111b373, type: 3}
+  depthScale: 5
+  gamma: 1
+  environmentImage: {fileID: 2800000, guid: dda4b3dd92051774ca1ca7666111b373, type: 3}
+  baseShader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  horzResolution: 256
+  vertResolution: 128
+  shaderMat: {fileID: 2100000, guid: 75b7d697dc10f284199d8cc1dbd118ca, type: 2}
+  smoothingKernelSize: 3
+--- !u!114 &635380481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 635380474}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 858243ff90f41b4498eb8331ec3b4e1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputImage: {fileID: 2800000, guid: dda4b3dd92051774ca1ca7666111b373, type: 3}
+  depthShader: {fileID: 10755, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
