@@ -63,11 +63,10 @@ namespace HuggingFace.API.Examples
             generateButton.interactable = false;
             inputField.text = "";
 
-            // Generate the refined prompt using GPT-2 before calling the image model
-            //string gptPrompt = $"Improve the following image-generation prompt to give more detail about perspective and environment. {inputText}";
-            string gptPrompt = "Please answer the following question. What is the boiling point of nitrogen?";
+            // Generate the refined prompt using FLAN-T5 before calling the image model
+            string gptPrompt = $"Re-write the following sentence, using more detail and synonyms: {inputText}";
 
-            // Call HuggingFace's GPT-2 model to refine the prompt
+            // Call HuggingFace's FLAN-T5 model to refine the prompt
             HuggingFaceAPI.TextGeneration(gptPrompt, refinedPrompt => {
                 // Debug: Log the refined prompt to the console
                 Debug.Log("T5 Response: " + refinedPrompt);
