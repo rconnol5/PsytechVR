@@ -255,6 +255,7 @@ GameObject:
   - component: {fileID: 635380478}
   - component: {fileID: 635380480}
   - component: {fileID: 635380481}
+  - component: {fileID: 635380482}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -431,6 +432,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputImage: {fileID: 2800000, guid: dda4b3dd92051774ca1ca7666111b373, type: 3}
   depthShader: {fileID: 10755, guid: 0000000000000000f000000000000000, type: 0}
+--- !u!114 &635380482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 635380474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06410576020edda4f8b0b3d8f4ccd6aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pythonScriptPath: Assets/Scripts/DepthTest.py
+  pythonExePath: python
+  inputImagePath: Assets/Materials/AI Depth Map 360 test.jpg
+  outputImagePath: Assets/Materials/TestOutputDepthMaps/image1.png
+  targetRenderer: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
