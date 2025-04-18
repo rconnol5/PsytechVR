@@ -80,7 +80,7 @@ namespace HuggingFace.API.Examples
                 Debug.Log("Fixed refinedPrompt: " + refinedPrompt);
                 */
 
-                string finalPrompt = "TOK Generate a 360-degree panorama image of " + refinedPrompt;
+                string finalPrompt = "TOK Generate a 360-degree panorama image of " + inputText;
 
                 Debug.Log("finalPrompt: " + finalPrompt);
 

@@ -1747,8 +1747,12 @@ MonoBehaviour:
   refinedPromptPanel: {fileID: 2026565304}
   refinedPromptText: {fileID: 453314402}
   suggestionPanel: {fileID: 735765858}
-  suggestionTogglePrefab: {fileID: 3520089020307164573, guid: 16f98c73b6f12b543b01780115644222, type: 3}
-  suggestionContainer: {fileID: 993281386}
+  suggestionToggle1: {fileID: 0}
+  suggestionToggle2: {fileID: 0}
+  suggestionToggle3: {fileID: 0}
+  suggestionLabel1: {fileID: 0}
+  suggestionLabel2: {fileID: 0}
+  suggestionLabel3: {fileID: 0}
   generateImageButton: {fileID: 32373832}
   resetButton: {fileID: 1939373822}
   imageResultPanel: {fileID: 1471681532}

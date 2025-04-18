@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/HuggingFaceAPI/Examples/Scenes/TextToImageExample.unity
     guid: 042b5e9e4bbef794eaf009a01c71ddae
+  - enabled: 1
+    path: Assets/HuggingFaceAPI/Examples/Scenes/Start Scene.unity
+    guid: 8964d1b22da627c4e931961cebcf65b0
   m_configObjects: {}

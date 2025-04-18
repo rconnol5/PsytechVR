@@ -9,6 +9,7 @@ using UnityEngine.Networking;
 using TMPro;
 using Newtonsoft.Json;
 using UnityEditor;
+using UnityEngine.SceneManagement;
 
 namespace HuggingFace.API.Examples
 {
@@ -74,9 +75,19 @@ namespace HuggingFace.API.Examples
         [SerializeField] private TMP_Text refinedPromptText;
 
         [Header("UI Elements - Suggestions")]
+        /*
         [SerializeField] private GameObject suggestionPanel;
         [SerializeField] private GameObject suggestionTogglePrefab;
         [SerializeField] private Transform suggestionContainer;
+        */
+        [SerializeField] private GameObject suggestionPanel;
+        [SerializeField] private Toggle suggestionToggle1;
+        [SerializeField] private Toggle suggestionToggle2;
+        [SerializeField] private Toggle suggestionToggle3;
+        [SerializeField] private TMP_Text suggestionLabel1;
+        [SerializeField] private TMP_Text suggestionLabel2;
+        [SerializeField] private TMP_Text suggestionLabel3;
+
         [SerializeField] private Button generateImageButton;
         [SerializeField] private Button resetButton;
 
@@ -90,7 +101,7 @@ namespace HuggingFace.API.Examples
         private bool isWaitingForResponse;
         private string refinedPrompt;
         private List<string> suggestions;
-        private List<Toggle> suggestionToggles = new List<Toggle>();
+        //private List<Toggle> suggestionToggles = new List<Toggle>();
 
         private void Awake()
         {
@@ -265,6 +276,7 @@ namespace HuggingFace.API.Examples
             }
         }
 
+        /*
         private void UpdateUIWithRefinedPrompt()
         {
             // Update refined prompt text and show panel
@@ -302,12 +314,44 @@ namespace HuggingFace.API.Examples
             isWaitingForResponse = false;
             refineButton.interactable = true;
         }
+        */
+        private void UpdateUIWithRefinedPrompt()
+        {
+            if (refinedPrompt == null || suggestions == null || suggestions.Count < 3)
+            {
+                statusText.text = $"<color=#{errorColorHex}>Error: Refined prompt or suggestions are invalid</color>";
+                isWaitingForResponse = false;
+                refineButton.interactable = true;
+                return;
+            }
+
+            refinedPromptText.text = refinedPrompt;
+            refinedPromptPanel.SetActive(true);
+
+            // Set suggestion labels
+            suggestionLabel1.text = suggestions[0];
+            suggestionLabel2.text = suggestions[1];
+            suggestionLabel3.text = suggestions[2];
+
+            // Reset toggle states
+            suggestionToggle1.isOn = false;
+            suggestionToggle2.isOn = false;
+            suggestionToggle3.isOn = false;
+
+            // Show suggestions
+            suggestionPanel.SetActive(true);
+            statusText.text = "";
+            isWaitingForResponse = false;
+            refineButton.interactable = true;
+        }
+
 
         private void GenerateImageButtonClicked()
         {
             if (isWaitingForResponse) return;
 
             // Get selected suggestions
+            /*
             List<string> selectedSuggestions = new List<string>();
             for (int i = 0; i < suggestionToggles.Count; i++)
             {
@@ -316,6 +360,11 @@ namespace HuggingFace.API.Examples
                     selectedSuggestions.Add(suggestions[i]);
                 }
             }
+            */
+            List<string> selectedSuggestions = new List<string>();
+            if (suggestionToggle1.isOn) selectedSuggestions.Add(suggestionLabel1.text);
+            if (suggestionToggle2.isOn) selectedSuggestions.Add(suggestionLabel2.text);
+            if (suggestionToggle3.isOn) selectedSuggestions.Add(suggestionLabel3.text);
 
             // Create final prompt
             string finalPrompt = refinedPrompt;
@@ -376,13 +425,62 @@ namespace HuggingFace.API.Examples
             inputField.ActivateInputField();
         }
 
+        public void ViewInVRButtonClicked()
+        {
+            if (resultImage.sprite == null || resultImage.sprite.texture == null)
+            {
+                Debug.LogError("No image to view in VR.");
+                return;
+            }
+
+            // Convert Texture to Texture2D if needed
+            Texture2D texture2D = resultImage.sprite.texture;
+
+            // Save texture
+            SaveTextureAsPNG(texture2D);
+
+            // Load the VR viewing scene (Scene 0)
+            SceneManager.LoadScene(0); // Or SceneManager.LoadScene("ImageEnvironment");
+        }
+
+        private Texture2D ConvertToTexture2D(Texture sourceTexture)
+        {
+            // Handle already Texture2D
+            if (sourceTexture is Texture2D texture2D)
+            {
+                return texture2D;
+            }
+
+            // Create readable Texture2D from RenderTexture or non-readable Texture
+            RenderTexture renderTex = RenderTexture.GetTemporary(
+                sourceTexture.width,
+                sourceTexture.height,
+                0,
+                RenderTextureFormat.Default,
+                RenderTextureReadWrite.Linear);
+
+            Graphics.Blit(sourceTexture, renderTex);
+            RenderTexture previous = RenderTexture.active;
+            RenderTexture.active = renderTex;
+
+            Texture2D readableTex = new Texture2D(sourceTexture.width, sourceTexture.height);
+            readableTex.ReadPixels(new Rect(0, 0, renderTex.width, renderTex.height), 0, 0);
+            readableTex.Apply();
+
+            RenderTexture.active = previous;
+            RenderTexture.ReleaseTemporary(renderTex);
+
+            return readableTex;
+        }
+
         private void SaveTextureAsPNG(Texture2D texture)
         {
             byte[] bytes = texture.EncodeToPNG();
 
             // Create a unique timestamped filename
             string timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
-            string fileName = $"generated_image_{timestamp}.png";
+            //string fileName = $"generated_image_{timestamp}.png";
+            string fileName = "generated_image.png";
 
             // Save in persistentDataPath or wherever you prefer
             string filePath = Path.Combine(Application.persistentDataPath, fileName);

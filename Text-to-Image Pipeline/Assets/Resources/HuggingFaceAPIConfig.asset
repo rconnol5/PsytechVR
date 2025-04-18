@@ -32,7 +32,7 @@ MonoBehaviour:
   - taskName: TextGeneration
     endpoint: https://api-inference.huggingface.co/models/openai-community/gpt2
   - taskName: TextToImage
-    endpoint: https://api-inference.huggingface.co/models/igorriti/flux-360
+    endpoint: https://api-inference.huggingface.co/models/black-forest-labs/FLUX.1-dev
   - taskName: Translation
     endpoint: https://api-inference.huggingface.co/models/t5-base
   - taskName: ZeroShotTextClassification
