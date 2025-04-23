@@ -11,7 +11,7 @@ Our project aims to develop an advanced Virtual Reality (VR) therapy system enha
 
 # Pipeline Usage
 To access the main text-to-image pipeline, you will need to open the "Text-to-Image Pipeline" Unity project. 
-Within this project is a scene called "Start Scene". Open this scene.
+Within this project is a scene called "Start Scene" located in "Assets/HuggingFaceAPI/Examples/Scenes". Open this scene.
 In the scene hierarchy, select the "Prompt and Image Generation" gameobject, and view in the inspector. There will be a serializedfield entry box labeled "Open AI API Key". You can enter your API key here. This will be used to access GPT-4o mini.
 You will also need to enter your API key for HuggingFace, to access the text-to-image model. To do this, navigate to Window -> Hugging Face API Wizard. In the window there is an entry box labeled "API Key".
 Currently, the image model we have configured is the "FLUX.1-dev" model, which generates normal flat 2D images. This model is linked in the Hugging Face API Wizard, in the entry box labeled "TextToImage". The current link is: https://api-inference.huggingface.co/models/black-forest-labs/FLUX.1-dev
